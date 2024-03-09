@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>es-emotemenu</title>
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/line-awesome/dist/line-awesome/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<div id="app" :style="ui ? backgroundImageStyle : null">
+
+  <div v-if="ui" class="top">
+    <svg width="72.625rem" height="3.5rem" viewBox="0 0 1162 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 53L1159 53.0001" stroke="#7B90B7" stroke-opacity="0.16" stroke-width="6" stroke-linecap="round"/>
+      <path d="M1.30828 27.8774C0.575103 27.1055 0.5751 25.8945 1.30828 25.1226L9.29988 16.7089C10.5441 15.399 12.75 16.2796 12.75 18.0863L12.75 34.9137C12.75 36.7204 10.5441 37.601 9.29988 36.2911L1.30828 27.8774Z" fill="#FF036D"/>
+      <text ref="QText" fill="white" xml:space="preserve" style="white-space: pre" font-family="Akrobat" font-size="34" font-weight="800" letter-spacing="0.01em"><tspan x="22.7861" y="37.6">Q</tspan></text>
+      <path d="M1159.69 27.8774C1160.42 27.1055 1160.42 25.8945 1159.69 25.1226L1151.7 16.7089C1150.46 15.399 1148.25 16.2796 1148.25 18.0863L1148.25 34.9137C1148.25 36.7204 1150.46 37.601 1151.7 36.2911L1159.69 27.8774Z" fill="#FF036D"/>
+      <text ref="EText" fill="white" xml:space="preserve" style="white-space: pre" font-family="Akrobat" font-size="34" font-weight="800" letter-spacing="0.01em"><tspan x="1120.1" y="37.6">E</tspan></text>
+    </svg>
+  </div>
+
+  <div v-if="ui" class="category" ref="category">
+    <div v-for="(item, index) in categories" :key="index" class="list" @click="selectItem(index, $refs[`item${index}`], item)">
+      <span :ref="`item${index}`" :class="{ 'is-selected': selectedItem === index }">{{ item.icon }} {{ item.label }}</span>
+    </div>
+  </div>
+
+
+  <div class="fast-slot-1">
+    <div v-for="(eyes, index) in fastTabs['fast:1']" class="emote-container">
+    <div v-if="eyes.icon" class="icon" :style="{ backgroundImage: `url(./assets/icon/${eyes.icon}.png)`}"></div>
+    <svg width="10.5625rem" height="10.4375rem" viewBox="0 0 169 167" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="161px" height="161px" rx="8" fill="url(#paint0_linear_1498_1808)" fill-opacity="0.05"/>
+          <rect x="0.5" y="0.5" width="160" height="160" rx="7.5" stroke="#7B90B7" stroke-opacity="0.25"/>
+          <rect x="134" y="132" width="35" height="35" rx="5" fill="white"/>
+          <text text-anchor="middle" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="19" font-weight="600" text-anchor="middle" letter-spacing="0.01em">
+            <tspan x="146.75" y="156.409">
+              {{ eyes.bind || (index + 1) }}
+            </tspan>
+          </text>
+            <text fill="white" fill-opacity="0.3" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" text-anchor="middle" font-weight="600" letter-spacing="0.01em"><tspan x="77.8814" y="148.591">{{ eyes.label.toUpperCase() }}</tspan></text>
+          <defs>
+          <linearGradient id="paint0_linear_1498_1808" x1="80.5" y1="0" x2="80.5" y2="161" gradientUnits="userSpaceOnUse">
+          <stop stop-color="white" stop-opacity="0"/>
+          <stop offset="1" stop-color="white"/>
+          </linearGradient>
+          </defs>
+        </svg>
+    </div>
+  </div>
+  
+  <div class="fast-slot-2" >
+    <div v-for="(eyes, index) in fastTabs['fast:2']" class="emote-container">
+    <div v-if="eyes.icon" class="icon" :style="{ backgroundImage: `url(./assets/icon/${eyes.icon}.png)`}"></div>
+    <svg width="10.5625rem" height="10.4375rem" viewBox="0 0 169 167" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="161px" height="161px" rx="8" fill="url(#paint0_linear_1498_1808)" fill-opacity="0.05"/>
+          <rect x="0.5" y="0.5" width="160" height="160" rx="7.5" stroke="#7B90B7" stroke-opacity="0.25"/>
+          <rect x="134" y="132" width="35" height="35" rx="5" fill="white"/>
+          <text text-anchor="middle" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="19" font-weight="600" text-anchor="middle" letter-spacing="0.01em">
+            <tspan x="146.75" y="156.409">
+              {{ eyes.bind || (index + 5) }}
+            </tspan>
+          </text>
+          <text fill="white" fill-opacity="0.3" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" text-anchor="middle" font-weight="600" letter-spacing="0.01em"><tspan x="77.8814" y="148.591">{{ eyes.label.toUpperCase() }}</tspan></text>
+          <defs>
+          <linearGradient id="paint0_linear_1498_1808" x1="80.5" y1="0" x2="80.5" y2="161" gradientUnits="userSpaceOnUse">
+          <stop stop-color="white" stop-opacity="0"/>
+          <stop offset="1" stop-color="white"/>
+          </linearGradient>
+          </defs>
+        </svg>
+    </div>
+  </div>
+
+    <div id="draggable" v-if="ui" class="center">
+      <div v-for="(emote, index) in validEmotes" :key="index" :ref="`emote-${index}`" class="emote" @click="Get($event, index, emote)">
+      <div class="icon" :style="{ backgroundImage: 'url(./assets/icon/' + emote.icon + '.png)' }"></div>
+      <svg v-if="index === slindex" width="10.0625rem" height="10.0625rem" viewBox="0 0 161 161" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.5008px" y="0.5008px" width="160px" height="160px" rx="7.5008px" fill="url(#paint0_linear_1498_1694)" fill-opacity="0.4" stroke="#FF036D"/>
+          <text fill="white" xml:space="preserve" style="white-space: pre" text-anchor="middle" font-family="Inter" font-size="14px" font-weight="600" letter-spacing="0.01em"><tspan x="70.88px" y="145.84px">💠 {{ emote.label }}</tspan></text>
+          <defs>
+              <linearGradient id="paint0_linear_1498_1694" x1="80.5008px" y1="0px" x2="80.5008px" y2="161px" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#FF036D" stop-opacity="0"/>
+                  <stop offset="1" stop-color="#FF036D"/>
+              </linearGradient>
+          </defs>
+      </svg>
+      <svg v-else width="10.0625rem" height="10.0625rem" viewBox="0 0 161 161" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="10.0625rem" height="10.0625rem" rx="0.5rem" fill="url(#paint0_linear_1505_2690)" fill-opacity="0.05"/>
+          <rect x="0.5008px" y="0.5008px" width="160px" height="160px" rx="7.5008px" stroke="#7B90B7" stroke-opacity="0.25"/>
+          <text fill="white" fill-opacity="0.3" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14px" font-weight="600" text-anchor="middle" letter-spacing="0.01em"><tspan x="70.88px" y="145.84px">💠 {{ emote.label }}</tspan></text>
+          <defs>
+              <linearGradient id="paint0_linear_1505_2690" x1="80.5008px" y1="0px" x2="80.5008px" y2="161px" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="white" stop-opacity="0"/>
+                  <stop offset="1" stop-color="white"/>
+              </linearGradient>
+          </defs>
+      </svg>
+      </div>
+    </div>
+
+ 
+
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="./assets/data.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+<script src="./vue.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+
+</html>

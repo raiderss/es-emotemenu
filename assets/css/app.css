@@ -1,0 +1,384 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/font/Inter-Regular.ttf  ") format("opentype");
+}
+#app {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+body {
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.top {
+  position: absolute;
+  width: 72.5625rem;
+  height: 3.3125rem;
+  left: 23.75rem;
+  top: 5.125rem;
+}
+.top::-webkit-scrollbar {
+  display: none;
+}
+
+.category {
+  position: absolute;
+  left: 27rem;
+  top: 4.2rem;
+  height: auto;
+  width: 65rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  z-index: 99999999999999;
+  -ms-overflow-style: none;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 1.1875rem;
+  line-height: 300.02%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
+}
+.category::-webkit-scrollbar {
+  display: none;
+}
+.category .list {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7em 0.75em;
+  border-radius: 0.25rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 1.1875rem;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
+  box-sizing: border-box;
+}
+.category .list span {
+  position: relative;
+  border-radius: 0.25rem;
+  padding: 0.75em 0.6em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  opacity: 0.5;
+}
+.category .list span::after {
+  content: "";
+  position: absolute;
+  bottom: -0.4rem;
+  left: 0;
+  width: 100%;
+  height: 0.375rem;
+  border-radius: 0.125rem;
+  background-color: transparent;
+}
+.category .list .is-selected {
+  opacity: 1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(255, 3, 109, 0.5) 100%);
+}
+.category .list .is-selected::after {
+  background-color: #FF036D;
+}
+
+.fast-slot-1 {
+  position: absolute;
+  left: 4.7rem;
+  top: 11rem;
+  max-height: 49.75rem;
+  width: 13rem;
+  overflow-y: auto;
+  scrollbar-width: none;
+  z-index: 99999999999999;
+  scrollbar-width: thin;
+  scrollbar-color: #ff6f00 rgba(0, 0, 0, 0.1);
+}
+.fast-slot-1::-webkit-scrollbar {
+  width: 6px;
+  -webkit-transition: width 0.3s ease;
+  transition: width 0.3s ease;
+}
+.fast-slot-1::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+.fast-slot-1::-webkit-scrollbar-thumb {
+  background-color: #ff6f00;
+  border-radius: 4px;
+  -webkit-transition: background-color 0.3s ease, border-radius 0.3s ease, width 0.3s ease;
+  transition: background-color 0.3s ease, border-radius 0.3s ease, width 0.3s ease;
+}
+.fast-slot-1::-webkit-scrollbar-thumb:hover {
+  background-color: #b34e00;
+  width: 8px;
+  border-radius: 4px;
+}
+.fast-slot-1:hover {
+  scrollbar-width: auto;
+}
+.fast-slot-1:hover::-webkit-scrollbar {
+  width: 8px;
+}
+.fast-slot-1 .emote-container {
+  position: relative;
+  margin-top: 2rem;
+  top: -2rem;
+}
+.fast-slot-1 .emote-container .icon {
+  position: absolute;
+  left: 22%;
+  top: 15%;
+  width: 4.3119rem;
+  height: 5.7669rem;
+  background-image: url("../icon/run.png");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.fast-slot-1::-webkit-scrollbar {
+  display: none;
+}
+
+.fast-slot-2 {
+  position: absolute;
+  left: 103.5rem;
+  top: 11rem;
+  max-height: 49.75rem;
+  width: 13rem;
+  overflow-y: auto;
+  scrollbar-width: none;
+  z-index: 99999999999999;
+  scrollbar-width: thin;
+  scrollbar-color: #00eeff rgba(0, 0, 0, 0.1);
+}
+.fast-slot-2::-webkit-scrollbar {
+  width: 6px;
+  -webkit-transition: width 0.3s ease;
+  transition: width 0.3s ease;
+}
+.fast-slot-2::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+.fast-slot-2::-webkit-scrollbar-thumb {
+  background-color: #00eeff;
+  border-radius: 4px;
+  -webkit-transition: background-color 0.3s ease, border-radius 0.3s ease, width 0.3s ease;
+  transition: background-color 0.3s ease, border-radius 0.3s ease, width 0.3s ease;
+}
+.fast-slot-2::-webkit-scrollbar-thumb:hover {
+  background-color: #00a7b3;
+  width: 8px;
+  border-radius: 4px;
+}
+.fast-slot-2:hover {
+  scrollbar-width: auto;
+}
+.fast-slot-2:hover::-webkit-scrollbar {
+  width: 8px;
+}
+.fast-slot-2 .emote-container {
+  position: relative;
+  margin-top: 2rem;
+  top: -2rem;
+}
+.fast-slot-2 .emote-container .icon {
+  position: absolute;
+  left: 22%;
+  top: 15%;
+  width: 4.3119rem;
+  height: 5.7669rem;
+  background-image: url("../icon/run.png");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.fast-slot-2::-webkit-scrollbar {
+  display: none;
+}
+
+.drop-area .text-center {
+  border: 2px dashed #ccc;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.6); /* Hafifçe daha opak bir arka plan */
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Yumuşak bir gölge eklendi */
+  color: #333; /* Daha koyu bir yazı rengi, okunabilirliği artırır */
+  font-family: "Arial", sans-serif; /* Net ve okunaklı bir font */
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7); /* İkon ve metin için hafif bir metin gölgesi */
+}
+
+.drop-area .text-center:hover {
+  border-color: #888; /* Fare üzerine geldiğinde kenarlık rengini değiştir */
+  background: rgba(255, 255, 255, 0.8); /* Fare üzerine geldiğinde arka planı daha opak yap */
+}
+
+.notification-slide-enter-active, .notification-slide-leave-active {
+  transition: all 0.5s ease;
+}
+
+.notification-slide-enter, .notification-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.progress-bar {
+  transition: width 0.5s ease;
+}
+
+.center {
+  position: absolute;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  overflow: auto;
+  left: 22.5rem;
+  top: 9rem;
+  width: 75rem;
+  height: 50rem;
+  scrollbar-width: none;
+  z-index: 99999999999999;
+  cursor: grab;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  -ms-overflow-style: none;
+}
+.center::-webkit-scrollbar {
+  display: none;
+}
+.center .emote {
+  position: relative;
+  display: inline-flex;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  flex: 0 1 auto;
+  height: auto;
+}
+.center .emote .icon {
+  position: absolute;
+  left: 29%;
+  top: 15%;
+  width: 4.5rem;
+  height: 5.7669rem;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+html {
+  font-size: 16px;
+}
+
+@media screen and (width: 4096px) and (height: 2160px) {
+  html {
+    font-size: 31px;
+  }
+}
+@media screen and (width: 2560px) and (height: 1440px) {
+  html {
+    font-size: 21.3px;
+  }
+}
+@media screen and (width: 3440px) and (height: 1440px) {
+  html {
+    font-size: 21.9px;
+  }
+}
+@media screen and (width: 1920px) and (height: 1200px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media screen and (width: 1920px) and (height: 1200px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media screen and (width: 1920px) and (height: 1440px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media screen and (width: 1600px) and (height: 1024px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media screen and (width: 1440px) and (height: 900px) {
+  html {
+    font-size: 12px;
+  }
+}
+@media screen and (width: 1680px) and (height: 1050px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media screen and (width: 1600px) and (height: 900px) {
+  html {
+    font-size: 13.3px;
+  }
+}
+@media screen and (width: 1600px) and (height: 1024px) {
+  html {
+    font-size: 13.3px;
+  }
+}
+@media screen and (width: 1768px) and (height: 992px) {
+  html {
+    font-size: 15px;
+  }
+}
+@media screen and (width: 1366px) and (height: 768px) {
+  html {
+    font-size: 11.3px;
+  }
+}
+@media screen and (width: 1400px) and (height: 1050px) {
+  html {
+    font-size: 11.7px;
+  }
+}
+@media screen and (width: 1280px) and (height: 1024px) {
+  html {
+    font-size: 11.7px;
+  }
+}
+@media screen and (width: 1280px) and (height: 720px) {
+  html {
+    font-size: 11px;
+  }
+}
+@media screen and (width: 1024px) and (height: 768px) {
+  html {
+    font-size: 10.05px;
+  }
+}
+@media screen and (width: 832px) and (height: 624px) {
+  html {
+    font-size: 8.05px;
+  }
+}
+@media screen and (width: 800px) and (height: 600px) {
+  html {
+    font-size: 8px;
+  }
+}/*# sourceMappingURL=app.css.map */
