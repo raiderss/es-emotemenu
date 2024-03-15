@@ -50,10 +50,10 @@ end)
 
 -----------------------------
 
-Citizen.CreateThread(function()
-    Citizen.Wait(30)
-    playAnimation('props', 'prop_laptop_lester')
-end)
+-- Citizen.CreateThread(function()
+--     Citizen.Wait(30)
+--     playAnimation('props', 'prop_laptop_lester')
+-- end)
 
 RegisterNetEvent('syncAnimationToClients')
 AddEventHandler('syncAnimationToClients', function(playerId, category, animArgs)
