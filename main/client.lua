@@ -50,25 +50,51 @@ end)
 
 -----------------------------
 
--- Citizen.CreateThread(function()
---     Citizen.Wait(30)
---     playAnimation('props', 'prop_ld_case_01')
--- end)
+Citizen.CreateThread(function()
+    Citizen.Wait(30)
+    playAnimation('props', 'prop_laptop_lester')
+end)
+
+RegisterNetEvent('syncAnimationToClients')
+AddEventHandler('syncAnimationToClients', function(playerId, category, animArgs)
+
+    local playerPed = GetPlayerPed(GetPlayerFromServerId(playerId))
+
+    if category == 'walking' then
+        changeWalkingStyle(playerPed, animArgs)
+    elseif category == 'smile' and animArgs[1] and animArgs[2] and animArgs[3] and animArgs[4] then
+        playSpecificAnimation(playerPed, animArgs[1], animArgs[2], animArgs[3], animArgs[4])
+    elseif category == 'misc' and animArgs[1] and animArgs[2] then
+        playSpecificAnimation(playerPed, animArgs[1], animArgs[2])
+    elseif category == 'dance' and animArgs[1] and animArgs[2] then
+        playSpecificAnimation(playerPed, animArgs[1], animArgs[2])
+    elseif category == 'props' then
+        spawnPropInHand(playerPed, animArgs)
+    else
+        print("Invalid animation category or arguments:", category, animArgs)
+    end
+    
+end)
+
 
 
 RegisterNUICallback("playanim", function(anim)
+    print(json.encode(anim))
     local animData = anim.data
     playAnimation(animData.category, animData.args)  
 end)
 
 function playAnimation(category, animArgs)
     local playerPed = PlayerPedId()
+    local playerId = GetPlayerServerId(PlayerId())
+
     if category == 'walking' then
         changeWalkingStyle(playerPed, animArgs)
     elseif category == 'dance' then
         local dict, animName = getDanceAnim(animArgs)
         if dict and animName then
             playSpecificAnimation(playerPed, dict, animName)
+            TriggerServerEvent('syncAnimation', playerId, category, {dict, animName})
         else
             print('Geçersiz dans animasyonu: ', animArgs)
         end
@@ -76,20 +102,29 @@ function playAnimation(category, animArgs)
         local dict, animName, facialDict, facialAnimName = getSmileAnim(animArgs)
         if dict and animName then
             playSpecificAnimation(playerPed, dict, animName, facialDict, facialAnimName)
+            TriggerServerEvent('syncAnimation', playerId, category, {dict, animName, facialDict, facialAnimName})
         end
     elseif category == 'misc' then
         local dict, animName = getMiscAnim(animArgs)
         if dict and animName then
             playSpecificAnimation(playerPed, dict, animName)
+            TriggerServerEvent('syncAnimation', playerId, category, {dict, animName})
         else
             print('Geçersiz misc animasyonu: ', animArgs)
         end
     elseif category == 'props' then
         spawnPropInHand(playerPed, animArgs)
+        TriggerServerEvent('syncAnimation', playerId, category, animArgs)
     else
         print("Invalid animation category:", category)
     end
 end
+
+RegisterNetEvent('stopAnimationForAll')
+AddEventHandler('stopAnimationForAll', function()
+    local ped = PlayerPedId()
+    ClearPedTasksImmediately(ped)
+end)
 
 function playSpecificAnimation(ped, dict, animName, facialDict, facialAnimName)
     if not DoesEntityExist(ped) or IsEntityDead(ped) then
@@ -98,21 +133,26 @@ function playSpecificAnimation(ped, dict, animName, facialDict, facialAnimName)
     loadAnimDict(dict)
     TaskPlayAnim(ped, dict, animName, 8.0, -8.0, -1, 49, 0, false, false, false)
 
-
     if facialDict and facialAnimName then
         loadAnimDict(facialDict)
         PlayFacialAnim(ped, facialAnimName, facialDict)
     end
+    local isAnimationStopped = false
 
     Citizen.CreateThread(function()
-        while not IsControlJustReleased(0, Config.Stop) do
-            Citizen.Wait(0)
+        while not isAnimationStopped do
+            Citizen.Wait(0)  
             local playerPedCoords = GetEntityCoords(ped)
             DrawText3Ds(playerPedCoords.x, playerPedCoords.y, playerPedCoords.z + 1.0, "Press "..Config.Name.." to stop the animation.")
+            if IsControlJustReleased(0, Config.Stop) then
+                TriggerServerEvent('requestStopAnimationForAll')
+                isAnimationStopped = true
+            end
         end
         ClearPedTasks(ped)
     end)
 end
+
 
 local propOffsets = Config.propOffsets
 local propsList = {}
@@ -144,25 +184,27 @@ function spawnPropInHand(playerPed, propModel)
     AttachEntityToEntity(newProp, playerPed, boneIndex, offsetData.xOffset, offsetData.yOffset, offsetData.zOffset, offsetData.xRot, offsetData.yRot, offsetData.zRot, true, true, false, true, 1, true)
     table.insert(propsList, newProp)
     SetModelAsNoLongerNeeded(propModel)
-    Citizen.CreateThread(function()
-        local textShown = true
-        while textShown do
-            Citizen.Wait(0)
-            local playerPedCoords = GetEntityCoords(playerPed)
-            DrawText3Ds(playerPedCoords.x, playerPedCoords.y, playerPedCoords.z + 1.0, "Press " .. Config.Name .. " to delete prop.")
-            if IsControlJustReleased(0, Config.Stop) then
-                for _, prop in ipairs(propsList) do
-                    if DoesEntityExist(prop) then
-                        DeleteObject(prop)
-                        ClearPedTasksImmediately(playerPed)
-                        ResetPedMovementClipset(playerPed, 0)
-                    end
+    local textShown = true
+        Citizen.CreateThread(function()
+            while textShown do
+                Citizen.Wait(0)
+                local playerPedCoords = GetEntityCoords(playerPed)
+                if textShown then 
+                    DrawText3Ds(playerPedCoords.x, playerPedCoords.y, playerPedCoords.z + 1.0, "Press " .. Config.Name .. " to delete prop.")
                 end
-                propsList = {}
-                textShown = false
+                if IsControlJustReleased(0, Config.Stop) then
+                    for _, prop in ipairs(propsList) do
+                        if DoesEntityExist(prop) then
+                            DeleteObject(prop)
+                        end
+                    end
+                    propsList = {}
+                    textShown = false 
+                    ClearPedTasksImmediately(playerPed)
+                    ResetPedMovementClipset(playerPed, 0)
+                end
             end
-        end
-    end)
+        end)
 end
 
 function DrawText3Ds(x, y, z, text)
