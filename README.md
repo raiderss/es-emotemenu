@@ -3,7 +3,7 @@
 
 ## Preview
 
-[![YouTube](https://img.shields.io/badge/YouTube-Subscribe-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/)
+[![YouTube](https://img.shields.io/badge/YouTube-Subscribe-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=okAsRCDysyY)
 
 ## Tebex Store
 Browse our Tebex store for premium features and support:
