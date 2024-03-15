@@ -1,16 +1,21 @@
 
 ![4908e6ea51d829c20fd228d5e0024e3f0aec3142](https://github.com/raiderss/es-emotemenu/assets/53000629/94d03f90-d2fd-43a2-a4ac-2681a60799e0)
 
-[!Preview](https://youtu.be/okAsRCDysyY?si=H7QAuZism1kVB9FX)
+## Preview
 
-## Discord Community
-Join our Discord community for support and updates:
-[[Discord](https://img.shields.io/badge/Discord-ES%20Community-7289DA.svg)](https://discord.gg/EkwWvFS)
+[![YouTube](https://img.shields.io/badge/YouTube-Subscribe-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/)
 
 ## Tebex Store
 Browse our Tebex store for premium features and support:
 [![Tebex](https://img.shields.io/badge/Tebex-EYE%20STORE-00A2FF.svg)](https://eyestore.tebex.io/)
 
+## Discord Community
+Join our Discord community for support and updates:
+[![Discord](https://img.shields.io/badge/Discord-ES%20Community-7289DA.svg)](https://discord.gg/EkwWvFS)
+
+## Tebex Store
+Browse our Tebex store for premium features and support:
+[![Tebex](https://img.shields.io/badge/Tebex-EYE%20STORE-00A2FF.svg)](https://eyestore.tebex.io/)
 
 ## Contributors
 - **_ESCKaybeden#0488_**
