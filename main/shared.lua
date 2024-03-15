@@ -447,4 +447,3 @@ Config.EmoteOpen = 'I'
 Config.Fast = "fast"
 Config.FastOpen = 'Z'
 
-
