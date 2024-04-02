@@ -14,7 +14,6 @@ Join our Discord community for support and updates:
 [![Discord](https://img.shields.io/badge/Discord-ES%20Community-7289DA.svg)](https://discord.gg/EkwWvFS)
 
 ## Contributors
-- **_ESCKaybeden#0488_**
 - **_! Raider#0101_**
 
 ## Features
