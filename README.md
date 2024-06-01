@@ -1,5 +1,7 @@
 
 ![4908e6ea51d829c20fd228d5e0024e3f0aec3142](https://github.com/raiderss/es-emotemenu/assets/53000629/94d03f90-d2fd-43a2-a4ac-2681a60799e0)
+[![Discord](https://img.shields.io/badge/Discord-Join-blue?style=for-the-badge&logo=discord)](https://discord.gg/EkwWvFS)
+[![Tebex Store](https://img.shields.io/badge/Tebex-Store-green?style=for-the-badge&logo=shopify)](https://eyestore.tebex.io/)
 
 ## Preview
 
