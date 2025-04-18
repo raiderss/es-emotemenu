@@ -1,4 +1,3 @@
-
 ![4908e6ea51d829c20fd228d5e0024e3f0aec3142](https://github.com/raiderss/es-emotemenu/assets/53000629/94d03f90-d2fd-43a2-a4ac-2681a60799e0)
 [![Discord](https://img.shields.io/badge/Discord-Join-blue?style=for-the-badge&logo=discord)](https://discord.gg/EkwWvFS)
 [![Tebex Store](https://img.shields.io/badge/Tebex-Store-green?style=for-the-badge&logo=shopify)](https://eyestore.tebex.io/)
@@ -56,3 +55,9 @@ The FiveM Animation Menu enriches the gaming experience by offering players a me
 ## Conclusion
 
 The FiveM Animation Menu stands as a widely utilized tool within the FiveM community. It plays a pivotal role in enhancing gameplay interaction and fostering a sense of community among players. With its ease of access and customization options, it serves as a valuable addition to both players and server administrators alike.
+
+---
+
+## Tags
+
+#fivem-emotes #animation-menu #player-animations #roleplay-emotes #fivem-scripts #emote-system #character-animations #fivem-gestures #qbcore-animations #gta5-emotes #fivem-resources #roleplay-interactions #dance-emotes #fivem-emote-menu #social-interactions #player-expression #fivem-resource #adsense-compatible #seo-optimized #animation-system #fivem-roleplay #character-movement #multiplayer-animations #gesture-system #fivem-animation #emote-commands #social-roleplay #fivem-animation-menu #player-movement #roleplay-expressions
